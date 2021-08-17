@@ -30,7 +30,7 @@
         <!--Overview Controller-->
         <scene sceneID="0Xn-Kg-ndf">
             <objects>
-                <viewController storyboardIdentifier="OverviewController" title="Overview Controller" id="zT5-u0-33L" customClass="OverviewController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OverviewController" title="Overview Controller" extendedLayoutIncludesOpaqueBars="YES" id="zT5-u0-33L" customClass="OverviewController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V7F-hb-H8h" userLabel="BackLayer">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -481,7 +481,7 @@
                                 </segments>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xyx-uU-N4H">
-                                <rect key="frame" x="16" y="513" width="343" height="50"/>
+                                <rect key="frame" x="16" y="601" width="343" height="50"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CZO-jm-iee"/>
@@ -541,6 +541,7 @@
                             <constraint firstItem="1nJ-LT-7ad" firstAttribute="height" secondItem="Sn7-yq-SFo" secondAttribute="height" id="M9w-KE-ueQ"/>
                             <constraint firstItem="Xyx-uU-N4H" firstAttribute="trailing" secondItem="auw-2c-Tou" secondAttribute="trailing" id="NKr-ih-jTj"/>
                             <constraint firstItem="gxU-pa-dah" firstAttribute="top" secondItem="Sn7-yq-SFo" secondAttribute="top" id="Ocd-iF-T2f"/>
+                            <constraint firstItem="coS-yG-Slc" firstAttribute="bottom" secondItem="Xyx-uU-N4H" secondAttribute="bottom" constant="16" id="Pbe-Kh-ZQE"/>
                             <constraint firstItem="auw-2c-Tou" firstAttribute="bottom" secondItem="hDJ-bZ-ayF" secondAttribute="bottom" constant="5" id="Qqc-ld-6sn"/>
                             <constraint firstItem="VWt-UO-dYo" firstAttribute="leading" secondItem="coS-yG-Slc" secondAttribute="leading" constant="16" id="TyR-TL-Im1"/>
                             <constraint firstItem="gxU-pa-dah" firstAttribute="height" secondItem="Sn7-yq-SFo" secondAttribute="height" id="UCW-fW-93C"/>
@@ -564,7 +565,7 @@
                             <constraint firstItem="KzO-cd-quZ" firstAttribute="bottom" secondItem="VWt-UO-dYo" secondAttribute="bottom" id="oLm-d4-t7f"/>
                             <constraint firstItem="NgA-tZ-0j6" firstAttribute="leading" secondItem="gxU-pa-dah" secondAttribute="leading" id="p0Z-DG-gK8"/>
                             <constraint firstItem="auw-2c-Tou" firstAttribute="top" secondItem="hDJ-bZ-ayF" secondAttribute="top" constant="-5" id="pB2-kf-qUj"/>
-                            <constraint firstItem="Xyx-uU-N4H" firstAttribute="top" secondItem="auw-2c-Tou" secondAttribute="bottom" constant="14" id="vgP-Bn-76s"/>
+                            <constraint firstItem="Xyx-uU-N4H" firstAttribute="top" relation="greaterThanOrEqual" secondItem="auw-2c-Tou" secondAttribute="bottom" constant="14" id="vgP-Bn-76s"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Transaction" image="rectangle.badge.plus" catalog="system" selectedImage="rectangle.badge.plus" id="TDN-3z-Vsh"/>
@@ -836,12 +837,11 @@
         <scene sceneID="aem-t1-zXX">
             <objects>
                 <tabBarController storyboardIdentifier="TabBarController" id="POs-vQ-8Bd" customClass="TabBarController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" shadowImage="rectangle.stack" catalog="system" id="IrJ-H4-zBd">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" shadowImage="rectangle.stack" catalog="system" id="IrJ-H4-zBd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="tintColor" name="AccentColor"/>
-                        <color key="barTintColor" systemColor="systemBackgroundColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="Y3f-LA-lwF" kind="relationship" relationship="viewControllers" id="851-PK-cv8"/>
@@ -879,18 +879,60 @@
         <!--Stats Controller-->
         <scene sceneID="I1l-8O-iw2">
             <objects>
-                <viewController title="Stats Controller" id="5Eh-PQ-kzL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StatsController" title="Stats Controller" id="5Eh-PQ-kzL" customClass="StatsController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xJQ-98-yAj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4E-XC-jq1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8L-d8-sFJ" customClass="LastWeekChartView" customModule="koin" customModuleProvider="target">
+                                        <rect key="frame" x="16" y="37" width="343" height="250"/>
+                                        <color key="backgroundColor" systemColor="tertiarySystemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="250" id="gh8-XV-QTg"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LAST 7 DAYS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wVw-NL-DOi">
+                                        <rect key="frame" x="16" y="10" width="85.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" systemColor="secondaryLabelColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="J8L-d8-sFJ" firstAttribute="leading" secondItem="wVw-NL-DOi" secondAttribute="leading" id="BQw-jg-LHA"/>
+                                    <constraint firstAttribute="trailing" secondItem="J8L-d8-sFJ" secondAttribute="trailing" constant="16" id="Bp8-2G-pCp"/>
+                                    <constraint firstItem="wVw-NL-DOi" firstAttribute="leading" secondItem="g4E-XC-jq1" secondAttribute="leading" constant="16" id="GIN-ym-qEz"/>
+                                    <constraint firstItem="J8L-d8-sFJ" firstAttribute="top" secondItem="wVw-NL-DOi" secondAttribute="bottom" constant="10" id="IJb-cn-RJG"/>
+                                    <constraint firstAttribute="bottom" secondItem="J8L-d8-sFJ" secondAttribute="bottom" constant="16" id="JoL-1Q-jJo"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wVw-NL-DOi" secondAttribute="trailing" constant="16" id="TfP-zi-BVx"/>
+                                    <constraint firstItem="wVw-NL-DOi" firstAttribute="top" secondItem="ykh-ei-7yH" secondAttribute="top" constant="10" id="b3Q-R0-t4z"/>
+                                    <constraint firstItem="J8L-d8-sFJ" firstAttribute="centerX" secondItem="g4E-XC-jq1" secondAttribute="centerX" id="fzu-AC-YsF"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="ykh-ei-7yH"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Kda-5T-N2F"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="F3W-HO-TqD"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="g4E-XC-jq1" firstAttribute="leading" secondItem="F3W-HO-TqD" secondAttribute="leading" id="QhD-Nj-2tD"/>
+                            <constraint firstItem="g4E-XC-jq1" firstAttribute="top" secondItem="xJQ-98-yAj" secondAttribute="top" id="Sae-Sk-bee"/>
+                            <constraint firstItem="F3W-HO-TqD" firstAttribute="trailing" secondItem="g4E-XC-jq1" secondAttribute="trailing" id="Xjp-tr-x8d"/>
+                            <constraint firstAttribute="bottom" secondItem="g4E-XC-jq1" secondAttribute="bottom" id="ZDr-pD-QiL"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Statistics" largeTitleDisplayMode="always" id="yN0-Ae-xJG"/>
+                    <navigationItem key="navigationItem" title="Statistics" largeTitleDisplayMode="always" id="yN0-Ae-xJG">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="TAl-Bu-a4z">
+                            <color key="tintColor" name="AccentColor"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv5-Nv-Dc6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1001" y="-1530"/>
+            <point key="canvasLocation" x="1000.8" y="-1530.5847076461771"/>
         </scene>
         <!--Overview Navigation Controller-->
         <scene sceneID="9SC-9E-8eH">

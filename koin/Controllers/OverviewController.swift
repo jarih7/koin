@@ -47,14 +47,10 @@ class OverviewController: UIViewController, UINavigationBarDelegate {
         dateComponentDays.day = -7
         dateComponentMonts.month = -1
         
-        numberFormatter.numberStyle = .currencyAccounting
-        numberFormatter.locale = Locale(identifier: "en_US")
+        numberFormatter.numberStyle = .currency
+        numberFormatter.locale = Locale.init(identifier: "en_US")
         numberFormatter.minimumFractionDigits = 0
         numberFormatter.maximumFractionDigits = 2
-        numberFormatter.positivePrefix = "+$"
-        numberFormatter.positiveSuffix = ""
-        numberFormatter.negativePrefix = "-$"
-        numberFormatter.negativeSuffix = ""
         
         drawData()
     }
@@ -101,29 +97,22 @@ class OverviewController: UIViewController, UINavigationBarDelegate {
             computeData()
             
             DispatchQueue.main.async { [self] in
-                lastMonthView.fromDate.text = dateFormatter.string(from: Calendar.current.date(byAdding: dateComponentDays, to: Date())!)
+                lastMonthView.fromDate.text = dateFormatter.string(from: Calendar.current.date(byAdding: dateComponentMonts, to: Date())!)
                 lastMonthView.toDate.text = dateFormatter.string(from: Date())
-                numberFormatter.positivePrefix = "$"
                 lastMonthView.monthInSum.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(lastMonthIn)))
                 lastMonthView.monthOutSum.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(lastMonthOut)))
-                numberFormatter.positivePrefix = "+$"
                 lastMonthView.monthBalance.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(lastMonthIn - lastMonthOut)))
                 
-                lastWeekView.fromDate.text = dateFormatter.string(from: Calendar.current.date(byAdding: dateComponentMonts, to: Date())!)
+                lastWeekView.fromDate.text = dateFormatter.string(from: Calendar.current.date(byAdding: dateComponentDays, to: Date())!)
                 lastWeekView.toDate.text = dateFormatter.string(from: Date())
-                numberFormatter.positivePrefix = "$"
                 lastWeekView.weekInSum.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(lastWeekIn)))
                 lastWeekView.weekOutSum.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(lastWeekOut)))
-                numberFormatter.positivePrefix = "+$"
                 lastWeekView.weekBalance.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(lastWeekIn - lastWeekOut)))
                 
                 lastTransactionView.ltTitle.text = transactions.first?.title ?? "no data"
                 lastTransactionView.ltIncomingSymbol.text = transactions.first?.incoming ?? false ? "→" : "←"
                 lastTransactionView.ltIncomingSymbol.textColor = transactions.first?.incoming ?? false ? .systemGreen : .systemOrange
-                
-                numberFormatter.positivePrefix = "$"
                 lastTransactionView.ltTotal.text = numberFormatter.string(from: NSNumber(integerLiteral: Int(transactions.first?.total ?? 0)))
-                numberFormatter.positivePrefix = "+$"
                 
                 lastTransactionView.ltCounterparty.text = transactions.first?.counterparty ?? "no data"
                 lastTransactionView.ltDate.text = dateFormatter.string(from: transactions.first?.date ?? Date())
