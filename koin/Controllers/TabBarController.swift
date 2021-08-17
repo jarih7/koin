@@ -1,19 +1,16 @@
 //
-//  ViewController.swift
+//  TabBarController.swift
 //  koin
 //
 //  Created by Jaroslav Hampejs on 12/03/2021.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        delegate = self
     }
-
-
 }
-
