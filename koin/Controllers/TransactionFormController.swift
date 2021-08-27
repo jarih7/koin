@@ -28,6 +28,7 @@ class TransactionFormController: UIViewController {
     var detailVC: TransactionDetailController? = nil
     var historyVC: HistoryController? = nil
     var overviewVC: OverviewController? = nil
+    var statsVC: StatsController? = nil
     var lastVC: HistoryController? = nil
     var passedTransaction: Transaction? = nil
     
@@ -37,28 +38,19 @@ class TransactionFormController: UIViewController {
         print("detailVC: \(String(describing: detailVC))")
         print("historyVC: \(String(describing: historyVC))")
         print("overviewVC: \(String(describing: overviewVC))")
+        print("statsVC: \(String(describing: statsVC))")
         print("lastVC: \(String(describing: lastVC))")
         
         let tapAway = UITapGestureRecognizer(target: self.view, action: #selector(UITextField.endEditing(_:)))
         view.addGestureRecognizer(tapAway)
         
-        //titleBGView.clipsToBounds = true
         titleBGView.layer.cornerRadius = 8
-        //counterpartyBGView.clipsToBounds = true
         counterpartyBGView.layer.cornerRadius = 8
-        //totalBGView.clipsToBounds = true
         totalBGView.layer.cornerRadius = 8
         
-        //datePickerBackground.clipsToBounds = true
         datePickerBackground.layer.masksToBounds = false
         datePickerBackground.layer.cornerRadius = 8
-        //datePickerBackground.layer.shadowRadius = 5
-        //datePickerBackground.layer.shadowOpacity = 0.1
-        //datePickerBackground.layer.shadowColor = UIColor.black.cgColor
-        //datePickerBackground.layer.shadowOffset = CGSize(width: 0, height: 1)
-        //datePickerBackground.layer.shadowPath = UIBezierPath(roundedRect: datePickerBackground.bounds, cornerRadius: 8).cgPath
         
-        //saveButton.clipsToBounds = true
         saveButton.layer.masksToBounds = false
         saveButton.layer.cornerRadius = 8
         
@@ -76,6 +68,7 @@ class TransactionFormController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         if (passedTransaction == nil) {
+            //creating NEW TRANSACTION
             let newTransaction: Transaction = Transaction(context: self.context)
             newTransaction.incoming = segmentedControl.selectedSegmentIndex == 0 ? true : false
             newTransaction.title = titleField.text
@@ -84,14 +77,17 @@ class TransactionFormController: UIViewController {
             newTransaction.date = datePicker.date
             
             do {
-                try self.context.save()
-                self.historyVC?.changed = true
-                self.overviewVC?.changed = true
-                self.lastVC?.changed = true
+                try context.save()
+                print("statsVC: \(String(describing: statsVC))")
+                historyVC?.changed = true
+                overviewVC?.changed = true
+                statsVC?.changed = true
+                lastVC?.changed = true
             } catch {
                 print("ERROR SAVING CONTEXT")
             }
         } else {
+            //updating EXISTING TRANSACTION
             passedTransaction?.incoming = segmentedControl.selectedSegmentIndex == 0 ? true : false
             passedTransaction?.title = titleField.text
             passedTransaction?.counterparty = counterpartyField.text
@@ -100,11 +96,12 @@ class TransactionFormController: UIViewController {
             detailVC?.passedTransaction = passedTransaction
             
             do {
-                try self.context.save()
-                self.detailVC?.changed = true
-                self.historyVC?.changed = true
-                self.overviewVC?.changed = true
-                self.lastVC?.changed = true
+                try context.save()
+                detailVC?.changed = true
+                historyVC?.changed = true
+                overviewVC?.changed = true
+                statsVC?.changed = true
+                lastVC?.changed = true
             } catch {
                 print("ERROR SAVING CONTEXT")
             }

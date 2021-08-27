@@ -20,6 +20,7 @@ class TransactionDetailController: UIViewController, UIGestureRecognizerDelegate
     
     var historyVC: HistoryController? = nil
     var overviewVC: OverviewController? = nil
+    var statsVC: StatsController? = nil
     var lastVC: HistoryController? = nil
     var passedTransaction: Transaction? = nil
     let dateFormatter: DateFormatter = DateFormatter()
@@ -73,6 +74,7 @@ class TransactionDetailController: UIViewController, UIGestureRecognizerDelegate
             formController.passedTransaction = passedTransaction
             formController.overviewVC = overviewVC
             formController.historyVC = historyVC
+            formController.statsVC = statsVC
             formController.lastVC = lastVC
             formController.detailVC = self
             present(formController, animated: true, completion: nil)
@@ -89,6 +91,7 @@ class TransactionDetailController: UIViewController, UIGestureRecognizerDelegate
                 lastVC?.changed = true
                 historyVC?.changed = true
                 overviewVC?.changed = true
+                statsVC?.changed = true
             } catch {
                 print("ERROR SAVING CONTEXT")
             }

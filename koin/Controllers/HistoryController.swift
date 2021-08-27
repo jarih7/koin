@@ -123,6 +123,7 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
         let controller = segue.destination as! TransactionDetailController
         if let indexPath = collectionView.indexPathsForSelectedItems?.first{
             let overviewController = (tabBarController?.viewControllers?.first)?.children.first as! OverviewController
+            let statsController = (tabBarController?.viewControllers?[1])?.children.first as! StatsController
             let fullHistoryController = (tabBarController?.viewControllers?[2])?.children.first as! HistoryController
             let transaction = transactions[indexPath.row]
             controller.passedTransaction = transaction
@@ -130,10 +131,12 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
             if (fullView == true) {
                 controller.historyVC = self
                 controller.overviewVC = overviewController
+                controller.statsVC = statsController
             } else {
                 controller.lastVC = self
                 controller.overviewVC = overviewController
                 controller.historyVC = fullHistoryController
+                controller.statsVC = statsController
             }
         }
     }
@@ -142,15 +145,18 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let formController = storyboard.instantiateViewController(identifier: "TransactionFormController") as! TransactionFormController
         let overviewController = (tabBarController?.viewControllers?.first)?.children.first as! OverviewController
+        let statsController = (tabBarController?.viewControllers?[1])?.children.first as! StatsController
         let fullHistoryController = (tabBarController?.viewControllers?[2])?.children.first as! HistoryController
         
         if (fullView == true) {
             formController.historyVC = self
             formController.overviewVC = overviewController
+            formController.statsVC = statsController
         } else {
             formController.lastVC = self
             formController.overviewVC = overviewController
             formController.historyVC = fullHistoryController
+            formController.statsVC = statsController
         }
         
         present(formController, animated: true, completion: nil)

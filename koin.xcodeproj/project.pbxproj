@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642DAB3426D782D90011A054 /* WeekChartBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DAB3326D782D90011A054 /* WeekChartBarView.swift */; };
+		642DAB3726D7A00D0011A054 /* ChartBarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DAB3626D7A00D0011A054 /* ChartBarLabel.swift */; };
 		643EEF2525FCF972002F1B90 /* TransactionFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EEF2425FCF972002F1B90 /* TransactionFormController.swift */; };
 		644920B325FBE0DF009228A3 /* HistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644920B225FBE0DF009228A3 /* HistoryController.swift */; };
 		644920B625FBE487009228A3 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644920B525FBE487009228A3 /* TransactionCell.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		642DAB3326D782D90011A054 /* WeekChartBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekChartBarView.swift; path = koin/Controllers/WeekChartBarView.swift; sourceTree = SOURCE_ROOT; };
+		642DAB3626D7A00D0011A054 /* ChartBarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarLabel.swift; sourceTree = "<group>"; };
 		643EEF2425FCF972002F1B90 /* TransactionFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFormController.swift; sourceTree = "<group>"; };
 		644920B225FBE0DF009228A3 /* HistoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryController.swift; sourceTree = "<group>"; };
 		644920B525FBE487009228A3 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
@@ -84,10 +88,12 @@
 		6477006526CA9E4200DD57B4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				642DAB3326D782D90011A054 /* WeekChartBarView.swift */,
 				648A44B426CC129D0023466E /* LastWeekChartView.swift */,
 				64ED24982600FC25003842D9 /* LastMonthView.swift */,
 				64ED249E26010190003842D9 /* LastWeekView.swift */,
 				64ED24A4260101F0003842D9 /* LastTransactionView.swift */,
+				642DAB3626D7A00D0011A054 /* ChartBarLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,7 +217,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				642DAB3726D7A00D0011A054 /* ChartBarLabel.swift in Sources */,
 				644920B625FBE487009228A3 /* TransactionCell.swift in Sources */,
+				642DAB3426D782D90011A054 /* WeekChartBarView.swift in Sources */,
 				644920B325FBE0DF009228A3 /* HistoryController.swift in Sources */,
 				64ED24992600FC25003842D9 /* LastMonthView.swift in Sources */,
 				648A44B226CC065C0023466E /* StatsController.swift in Sources */,

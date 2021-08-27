@@ -5,7 +5,6 @@
 //  Created by Jaroslav Hampejs on 16/03/2021.
 //
 
-import Foundation
 import UIKit
 
 class LastMonthView: UIControl {

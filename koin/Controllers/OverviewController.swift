@@ -133,8 +133,10 @@ class OverviewController: UIViewController, UINavigationBarDelegate {
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let formController = storyBoard.instantiateViewController(identifier: "TransactionFormController") as! TransactionFormController
+        let statsController = (tabBarController?.viewControllers?[1])?.children.first as! StatsController
         let fullHistoryController = (tabBarController?.viewControllers?[2])?.children.first as! HistoryController
         formController.historyVC = fullHistoryController
+        formController.statsVC = statsController
         formController.overviewVC = self
         present(formController, animated: true, completion: nil)
     }
@@ -160,10 +162,12 @@ class OverviewController: UIViewController, UINavigationBarDelegate {
     @IBAction func lastTransactionTapped(_ sender: LastTransactionView) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let transactionDetailController = storyBoard.instantiateViewController(identifier: "TransactionDetailController") as! TransactionDetailController
+        let statsController = (tabBarController?.viewControllers?[1])?.children.first as! StatsController
         let fullHistoryController = (tabBarController?.viewControllers?[2])?.children.first as! HistoryController
         transactionDetailController.passedTransaction = transactions.first
         transactionDetailController.overviewVC = self
         transactionDetailController.historyVC = fullHistoryController
+        transactionDetailController.statsVC = statsController
         show(transactionDetailController, sender: self)
     }
 }
