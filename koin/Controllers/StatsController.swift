@@ -28,14 +28,14 @@ class StatsController: UIViewController {
     @IBOutlet weak var day6OutHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var day7OutHeightConstraint: NSLayoutConstraint!
 
-    @IBOutlet weak var day1OutLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day2OutLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day3OutLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day4OutLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day5OutLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day6OutLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day7OutLabelTopAnchor: NSLayoutConstraint!
-
+    @IBOutlet weak var day1OutLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day2OutLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day3OutLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day4OutLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day5OutLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day6OutLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day7OutLabelBottomAnchor: NSLayoutConstraint!
+    
     @IBOutlet weak var day1OutChartBar: WeekChartBarView!
     @IBOutlet weak var day2OutChartBar: WeekChartBarView!
     @IBOutlet weak var day3OutChartBar: WeekChartBarView!
@@ -72,13 +72,13 @@ class StatsController: UIViewController {
     @IBOutlet weak var day6InHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var day7InHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var day1InLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day2InLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day3InLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day4InLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day5InLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day6InLabelTopAnchor: NSLayoutConstraint!
-    @IBOutlet weak var day7InLabelTopAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day1InLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day2InLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day3InLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day4InLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day5InLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day6InLabelBottomAnchor: NSLayoutConstraint!
+    @IBOutlet weak var day7InLabelBottomAnchor: NSLayoutConstraint!
     
     @IBOutlet weak var day1InChartBar: WeekChartBarView!
     @IBOutlet weak var day2InChartBar: WeekChartBarView!
@@ -111,8 +111,8 @@ class StatsController: UIViewController {
     var inBars: [WeekChartBarView] = []
     var outBarHeightConstraints: [NSLayoutConstraint] = []
     var inBarHeightConstraints: [NSLayoutConstraint] = []
-    var outBarLabelsTopAnchors: [NSLayoutConstraint] = []
-    var inBarLabelsTopAnchors: [NSLayoutConstraint] = []
+    var outBarLabelsBottomAnchors: [NSLayoutConstraint] = []
+    var inBarLabelsBottomAnchors: [NSLayoutConstraint] = []
     var dayOutLabels: [UILabel] = []
     var dayInLabels: [UILabel] = []
     var outTransactions: [Transaction] = []
@@ -163,8 +163,8 @@ class StatsController: UIViewController {
         outBarHeightConstraints = [day1OutHeightConstraint, day2OutHeightConstraint, day3OutHeightConstraint, day4OutHeightConstraint, day5OutHeightConstraint, day6OutHeightConstraint, day7OutHeightConstraint]
         inBarHeightConstraints = [day1InHeightConstraint, day2InHeightConstraint, day3InHeightConstraint, day4InHeightConstraint, day5InHeightConstraint, day6InHeightConstraint, day7InHeightConstraint]
         
-        outBarLabelsTopAnchors = [day1OutLabelTopAnchor, day2OutLabelTopAnchor, day3OutLabelTopAnchor, day4OutLabelTopAnchor, day5OutLabelTopAnchor, day6OutLabelTopAnchor, day7OutLabelTopAnchor]
-        inBarLabelsTopAnchors = [day1InLabelTopAnchor, day2InLabelTopAnchor, day3InLabelTopAnchor, day4InLabelTopAnchor, day5InLabelTopAnchor, day6InLabelTopAnchor, day7InLabelTopAnchor]
+        outBarLabelsBottomAnchors = [day1OutLabelBottomAnchor, day2OutLabelBottomAnchor, day3OutLabelBottomAnchor, day4OutLabelBottomAnchor, day5OutLabelBottomAnchor, day6OutLabelBottomAnchor, day7OutLabelBottomAnchor]
+        inBarLabelsBottomAnchors = [day1InLabelBottomAnchor, day2InLabelBottomAnchor, day3InLabelBottomAnchor, day4InLabelBottomAnchor, day5InLabelBottomAnchor, day6InLabelBottomAnchor, day7InLabelBottomAnchor]
         
         redrawChart()
     }
@@ -235,6 +235,7 @@ class StatsController: UIViewController {
     func setupBars(outTotals: [Int], inTotals: [Int]) {
         let outMax: Int = outTotals.max() ?? 0
         let inMax: Int = inTotals.max() ?? 0
+        
         var outHeights: [Int] = []
         var inHeights: [Int] = []
             
@@ -250,10 +251,10 @@ class StatsController: UIViewController {
         var workingLabel: UILabel = UILabel()
             
         for (index, bar) in self.outBars.enumerated() {
-            outBarHeightConstraints[index].constant = CGFloat(outHeights[index] == 0 ? 4 : outHeights[index])
+            outBarHeightConstraints[index].constant = CGFloat(outHeights[index])
             bar.layoutIfNeeded()
             
-            subviews = bar.subviews.filter{$0 is ChartBarLabel}
+            subviews = bar.subviews.filter{ $0 is ChartBarLabel }
             workingLabel = subviews.first as! ChartBarLabel
             workingLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
             workingLabel.text = outTotals[index].description
@@ -261,14 +262,14 @@ class StatsController: UIViewController {
             let outLabelFits: Bool = outBarHeightConstraints[index].constant - 20 > workingLabel.intrinsicContentSize.height
             
             workingLabel.textColor = outLabelFits ? .white : .secondaryLabel
-            outBarLabelsTopAnchors[index].constant = outLabelFits ? 10 : -workingLabel.intrinsicContentSize.height - 10
+            outBarLabelsBottomAnchors[index].constant = outLabelFits ? -workingLabel.intrinsicContentSize.width / 2 + (outBarHeightConstraints[index].constant - workingLabel.intrinsicContentSize.height) : outBarHeightConstraints[index].constant + workingLabel.intrinsicContentSize.width / 2
         }
         
         for (index, bar) in self.inBars.enumerated() {
-            inBarHeightConstraints[index].constant = CGFloat(inHeights[index] == 0 ? 4 : inHeights[index])
+            inBarHeightConstraints[index].constant = CGFloat(inHeights[index])
             bar.layoutIfNeeded()
             
-            subviews = bar.subviews.filter{$0 is ChartBarLabel}
+            subviews = bar.subviews.filter{ $0 is ChartBarLabel }
             workingLabel = subviews.first as! ChartBarLabel
             workingLabel.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
             workingLabel.text = inTotals[index].description
@@ -276,7 +277,7 @@ class StatsController: UIViewController {
             let inLabelFits: Bool = inBarHeightConstraints[index].constant - 20 > workingLabel.intrinsicContentSize.height
             
             workingLabel.textColor = inLabelFits ? .white : .secondaryLabel
-            inBarLabelsTopAnchors[index].constant = inLabelFits ? 10 : -workingLabel.intrinsicContentSize.height - 10
+            inBarLabelsBottomAnchors[index].constant = inLabelFits ? -workingLabel.intrinsicContentSize.width / 2 + (inBarHeightConstraints[index].constant - workingLabel.intrinsicContentSize.height) : inBarHeightConstraints[index].constant + workingLabel.intrinsicContentSize.width / 2
         }
     }
 }
