@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		642A3B3926EB9CBC0067EED6 /* StatsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642A3B3826EB9CBC0067EED6 /* StatsNavigationController.swift */; };
+		642A3B3C26EB9D0E0067EED6 /* OverviewNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642A3B3B26EB9D0E0067EED6 /* OverviewNavigationController.swift */; };
+		642A3B3F26EB9D480067EED6 /* SettingsNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642A3B3E26EB9D480067EED6 /* SettingsNavigationController.swift */; };
+		642A3B4226EB9D710067EED6 /* HistoryNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642A3B4126EB9D710067EED6 /* HistoryNavigationController.swift */; };
 		642DAB3426D782D90011A054 /* WeekChartBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DAB3326D782D90011A054 /* WeekChartBarView.swift */; };
 		642DAB3726D7A00D0011A054 /* ChartBarLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 642DAB3626D7A00D0011A054 /* ChartBarLabel.swift */; };
 		643EEF2525FCF972002F1B90 /* TransactionFormController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643EEF2425FCF972002F1B90 /* TransactionFormController.swift */; };
@@ -32,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		642A3B3826EB9CBC0067EED6 /* StatsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsNavigationController.swift; sourceTree = "<group>"; };
+		642A3B3B26EB9D0E0067EED6 /* OverviewNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewNavigationController.swift; sourceTree = "<group>"; };
+		642A3B3E26EB9D480067EED6 /* SettingsNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsNavigationController.swift; sourceTree = "<group>"; };
+		642A3B4126EB9D710067EED6 /* HistoryNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryNavigationController.swift; sourceTree = "<group>"; };
 		642DAB3326D782D90011A054 /* WeekChartBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekChartBarView.swift; path = koin/Controllers/WeekChartBarView.swift; sourceTree = SOURCE_ROOT; };
 		642DAB3626D7A00D0011A054 /* ChartBarLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarLabel.swift; sourceTree = "<group>"; };
 		643EEF2425FCF972002F1B90 /* TransactionFormController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionFormController.swift; sourceTree = "<group>"; };
@@ -69,9 +77,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		642A3B3626EB9C8E0067EED6 /* NavigationControllers */ = {
+			isa = PBXGroup;
+			children = (
+				642A3B3826EB9CBC0067EED6 /* StatsNavigationController.swift */,
+				642A3B3B26EB9D0E0067EED6 /* OverviewNavigationController.swift */,
+				642A3B3E26EB9D480067EED6 /* SettingsNavigationController.swift */,
+				642A3B4126EB9D710067EED6 /* HistoryNavigationController.swift */,
+			);
+			path = NavigationControllers;
+			sourceTree = "<group>";
+		};
 		6477006426CA9E1700DD57B4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				642A3B3626EB9C8E0067EED6 /* NavigationControllers */,
 				64A01D2525FBD2DC00069AA7 /* TabBarController.swift */,
 				644920B225FBE0DF009228A3 /* HistoryController.swift */,
 				64845DBD25FCCC42002FF8BD /* TransactionDetailController.swift */,
@@ -219,6 +239,7 @@
 			files = (
 				642DAB3726D7A00D0011A054 /* ChartBarLabel.swift in Sources */,
 				644920B625FBE487009228A3 /* TransactionCell.swift in Sources */,
+				642A3B3F26EB9D480067EED6 /* SettingsNavigationController.swift in Sources */,
 				642DAB3426D782D90011A054 /* WeekChartBarView.swift in Sources */,
 				644920B325FBE0DF009228A3 /* HistoryController.swift in Sources */,
 				64ED24992600FC25003842D9 /* LastMonthView.swift in Sources */,
@@ -231,9 +252,12 @@
 				64ED24A5260101F0003842D9 /* LastTransactionView.swift in Sources */,
 				64A01D2625FBD2DC00069AA7 /* TabBarController.swift in Sources */,
 				643EEF2525FCF972002F1B90 /* TransactionFormController.swift in Sources */,
+				642A3B4226EB9D710067EED6 /* HistoryNavigationController.swift in Sources */,
 				648A44B526CC129D0023466E /* LastWeekChartView.swift in Sources */,
 				64C676A22624AC0900F6B183 /* SettingsHostingController.swift in Sources */,
+				642A3B3C26EB9D0E0067EED6 /* OverviewNavigationController.swift in Sources */,
 				64A01D1525FBCE4C00069AA7 /* koin.xcdatamodeld in Sources */,
+				642A3B3926EB9CBC0067EED6 /* StatsNavigationController.swift in Sources */,
 				64ED24962600F3C1003842D9 /* OverviewController.swift in Sources */,
 				64A01D0D25FBCE4C00069AA7 /* SceneDelegate.swift in Sources */,
 			);

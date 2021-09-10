@@ -857,7 +857,7 @@
         <!--History Navigation Controller-->
         <scene sceneID="MN6-ir-DqU">
             <objects>
-                <navigationController storyboardIdentifier="HistoryNavigationController" title="History Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="EC5-WY-ogG" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HistoryNavigationController" title="History Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="EC5-WY-ogG" customClass="HistoryNavigationController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="History" image="rectangle.stack" catalog="system" selectedImage="rectangle.stack" id="YeH-b2-KQd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Adc-ap-hy6">
@@ -1402,7 +1402,7 @@
         <!--Overview Navigation Controller-->
         <scene sceneID="9SC-9E-8eH">
             <objects>
-                <navigationController title="Overview Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Y3f-LA-lwF" sceneMemberID="viewController">
+                <navigationController title="Overview Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="Y3f-LA-lwF" customClass="OverviewNavigationController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Overview" image="chart.bar.doc.horizontal" catalog="system" selectedImage="chart.bar.doc.horizontal" id="Hor-IQ-mpp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="paP-hz-XUG">
@@ -1424,7 +1424,7 @@
         <!--Settings Navigation Controller-->
         <scene sceneID="axV-Rf-fUH">
             <objects>
-                <navigationController title="Settings Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="lkN-Ta-OQt" sceneMemberID="viewController">
+                <navigationController title="Settings Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="lkN-Ta-OQt" customClass="SettingsNavigationController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="gearshape" catalog="system" selectedImage="gearshape" id="L3b-cL-u7u"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="3Hb-y2-9pr">
@@ -1446,7 +1446,7 @@
         <!--Stats Navigation Controller-->
         <scene sceneID="Aqu-KA-rOe">
             <objects>
-                <navigationController title="Stats Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="80I-qn-xef" sceneMemberID="viewController">
+                <navigationController title="Stats Navigation Controller" automaticallyAdjustsScrollViewInsets="NO" id="80I-qn-xef" customClass="StatsNavigationController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Statistics" image="chart.bar.xaxis" catalog="system" id="edj-bN-mA1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="Ut3-Xb-FsM">

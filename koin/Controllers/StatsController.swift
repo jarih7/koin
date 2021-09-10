@@ -240,11 +240,11 @@ class StatsController: UIViewController {
         var inHeights: [Int] = []
             
         for dayInTotal in outTotals {
-            outHeights.append(Int(self.outChartStack.frame.height) * dayInTotal / outMax)
+            outHeights.append(Int(self.outChartStack.frame.height) * dayInTotal / (outMax == 0 ? 1 : outMax))
         }
         
         for dayOutTotal in inTotals {
-            inHeights.append(Int(self.inChartStack.frame.height) * dayOutTotal / inMax)
+            inHeights.append(Int(self.inChartStack.frame.height) * dayOutTotal / (inMax == 0 ? 1 : inMax))
         }
             
         var subviews: [UIView?] = []

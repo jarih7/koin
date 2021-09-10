@@ -122,9 +122,12 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let controller = segue.destination as! TransactionDetailController
         if let indexPath = collectionView.indexPathsForSelectedItems?.first{
-            let overviewController = (tabBarController?.viewControllers?.first)?.children.first as! OverviewController
-            let statsController = (tabBarController?.viewControllers?[1])?.children.first as! StatsController
-            let fullHistoryController = (tabBarController?.viewControllers?[2])?.children.first as! HistoryController
+            let navigationControllers = tabBarController?.viewControllers
+            
+            let overviewController = (tabBarController?.viewControllers?.first(where: {$0 is OverviewNavigationController}))?.children.first as! OverviewController
+            let statsController = (tabBarController?.viewControllers?.first(where: {$0 is StatsNavigationController}))?.children.first as! StatsController
+            let fullHistoryController = (tabBarController?.viewControllers?.first(where: {$0 is HistoryNavigationController}))?.children.first as! HistoryController
+            
             let transaction = transactions[indexPath.row]
             controller.passedTransaction = transaction
             
@@ -144,9 +147,10 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let formController = storyboard.instantiateViewController(identifier: "TransactionFormController") as! TransactionFormController
-        let overviewController = (tabBarController?.viewControllers?.first)?.children.first as! OverviewController
-        let statsController = (tabBarController?.viewControllers?[1])?.children.first as! StatsController
-        let fullHistoryController = (tabBarController?.viewControllers?[2])?.children.first as! HistoryController
+        
+        let overviewController = (tabBarController?.viewControllers?.first(where: {$0 is OverviewNavigationController}))?.children.first as! OverviewController
+        let statsController = (tabBarController?.viewControllers?.first(where: {$0 is StatsNavigationController}))?.children.first as! StatsController
+        let fullHistoryController = (tabBarController?.viewControllers?.first(where: {$0 is HistoryNavigationController}))?.children.first as! HistoryController
         
         if (fullView == true) {
             formController.historyVC = self
@@ -172,6 +176,7 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
     }
     
     @IBAction func unwindToController(segue: UIStoryboardSegue) {
+        
     }
 }
 
