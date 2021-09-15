@@ -1,5 +1,5 @@
 //
-//  SettingsControllerSUI.swift
+//  StatsView.swift
 //  koin
 //
 //  Created by Jaroslav Hampejs on 12/04/2021.
@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct SettingsControllerSUI: View {
-    @State private var toggle = true
+struct StatsView: View {
+    //@State private var toggle = true
     
+    /*
     var body: some View {
         List {
             Section(header: Text("first")) {
@@ -26,11 +27,18 @@ struct SettingsControllerSUI: View {
                 Text("SwiftUI Settings")
             }
         }.listStyle(GroupedListStyle())
+    }*/
+    
+    var body: some View {
+        //TODO align top
+        VStack {
+            ChartView()
+        }
     }
 }
 
-struct SettingsControllerSUI_Previews: PreviewProvider {
+struct StatsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsControllerSUI()
+        StatsView()
     }
 }

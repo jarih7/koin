@@ -422,6 +422,16 @@
             </objects>
             <point key="canvasLocation" x="1001" y="-772"/>
         </scene>
+        <!--Stats_SUI-->
+        <scene sceneID="IAb-Qw-AWB">
+            <objects>
+                <hostingController id="MGh-Yg-R9X" customClass="StatsHostingController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Stats_SUI" image="swift" catalog="system" id="JBp-SE-eZn"/>
+                </hostingController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jl1-Q8-sWZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2102" y="-772"/>
+        </scene>
         <!--Add Transaction-->
         <scene sceneID="kAd-zx-Rg8">
             <objects>
@@ -587,16 +597,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8K-Wp-AnI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1772" y="21"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="BdY-cw-72P">
-            <objects>
-                <hostingController id="cPq-LQ-DbA" customClass="SettingsHostingController" customModule="koin" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" title="Settings" largeTitleDisplayMode="always" id="YrL-7e-j4Z"/>
-                </hostingController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kjq-5J-nmy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3440.8000000000002" y="-772.26386806596713"/>
         </scene>
         <!--History Controller-->
         <scene sceneID="xn1-Aa-KVJ">
@@ -846,6 +846,7 @@
                     <connections>
                         <segue destination="Y3f-LA-lwF" kind="relationship" relationship="viewControllers" id="851-PK-cv8"/>
                         <segue destination="80I-qn-xef" kind="relationship" relationship="viewControllers" id="cAL-Wk-0hh"/>
+                        <segue destination="MGh-Yg-R9X" kind="relationship" relationship="viewControllers" id="xvm-mh-5cr"/>
                         <segue destination="EC5-WY-ogG" kind="relationship" relationship="viewControllers" id="gcQ-Hm-ld3"/>
                         <segue destination="lkN-Ta-OQt" kind="relationship" relationship="viewControllers" id="Jk7-bC-wc3"/>
                     </connections>
@@ -1475,6 +1476,7 @@
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="rectangle.badge.plus" catalog="system" width="128" height="95"/>
         <image name="rectangle.stack" catalog="system" width="128" height="122"/>
+        <image name="swift" catalog="system" width="128" height="106"/>
         <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="0.28999999165534973" green="0.76899999380111694" blue="0.72899997234344482" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

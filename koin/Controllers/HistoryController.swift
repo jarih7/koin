@@ -124,9 +124,9 @@ class HistoryController: UICollectionViewController, UICollectionViewDelegateFlo
         if let indexPath = collectionView.indexPathsForSelectedItems?.first{
             let navigationControllers = tabBarController?.viewControllers
             
-            let overviewController = (tabBarController?.viewControllers?.first(where: {$0 is OverviewNavigationController}))?.children.first as! OverviewController
-            let statsController = (tabBarController?.viewControllers?.first(where: {$0 is StatsNavigationController}))?.children.first as! StatsController
-            let fullHistoryController = (tabBarController?.viewControllers?.first(where: {$0 is HistoryNavigationController}))?.children.first as! HistoryController
+            let overviewController = (navigationControllers?.first(where: {$0 is OverviewNavigationController}))?.children.first as! OverviewController
+            let statsController = (navigationControllers?.first(where: {$0 is StatsNavigationController}))?.children.first as! StatsController
+            let fullHistoryController = (navigationControllers?.first(where: {$0 is HistoryNavigationController}))?.children.first as! HistoryController
             
             let transaction = transactions[indexPath.row]
             controller.passedTransaction = transaction
