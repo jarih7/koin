@@ -1,4 +1,5 @@
-# koin
+![koin_banner](https://user-images.githubusercontent.com/29509474/133471238-e21316c1-b5e9-4266-b0b6-346e217f6ddf.png)
+
 
 koin is an easy-to-use personal finances manager for iOS. It will enable easy tracking of your incomes and spendings with use of simple chart views – comming soon.
 
